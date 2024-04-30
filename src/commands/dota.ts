@@ -48,7 +48,6 @@ export async function execute(interaction: CommandInteraction) {
 
   const collector = response.createMessageComponentCollector({
     componentType: ComponentType.Button,
-    time: 60000,
   }); 
   
   collector.on('collect', async (i) => {
