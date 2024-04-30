@@ -39,7 +39,7 @@ export async function execute(interaction: CommandInteraction) {
       )
   
   const response = await interaction.reply({
-    content: "<@&1216689692079030312>",
+    content: "<@&1036603543664201819>",
     embeds: [embed],
     components:[row]
   });
