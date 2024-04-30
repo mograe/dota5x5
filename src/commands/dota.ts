@@ -29,7 +29,7 @@ export async function execute(interaction: CommandInteraction) {
     const row = new ActionRowBuilder<ButtonBuilder>()
       .addComponents(join, cancel)
 
-    players = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    players = []
 
     embed
       .setColor(0x0099ff)

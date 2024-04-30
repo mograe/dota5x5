@@ -9,7 +9,6 @@ const client = new Client({
 
 client.once("ready", () => {
   console.log("Discord bot is ready! 🤖");
-  updateCommands();
 });
 
 client.on("guildCreate", async (guild) => {
