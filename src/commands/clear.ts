@@ -7,16 +7,24 @@ export const data = new SlashCommandBuilder()
 
 
 export async function execute(interaction: CommandInteraction) {
-  if (lastMessage === null) {
+  if (lastMessage.get(interaction.guildId!) === null) {
     interaction.reply({content: "lastMessage is null", ephemeral: true})
     return;
   }
 
-  players.length = 0;
+  const lastMessageGuild = lastMessage.get(interaction.guildId!);
 
-  embed.setFields({name: "Челы", value: "Пусто"});
+  players.set(interaction.guildId!, new Array<string>(10).fill(" "));
 
-  lastMessage.edit({embeds: [embed]});
+  const numbers = ["1. ", "2. ", "3. ", "4. ", "5. "];
+
+    embed
+      .setFields(
+        {name: "Team 1", value: numbers.join("\n"), inline: true},
+        {name: "Team 2", value: numbers.join("\n"), inline: true}
+      )
+
+  lastMessageGuild!.edit({embeds: [embed]});
 
   interaction.reply({content: "Список очищен", ephemeral:true});
 }
